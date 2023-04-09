@@ -10,6 +10,7 @@ public class Ivan
             Console.WriteLine($"\nНомер парного елементу |{indexOfEvenNumber + 1}|");
             Delete_Element(ref mass, mass.Length, indexOfEvenNumber);
             Console.WriteLine("\nРезультуючий масив");
+            PrintMassAsOneString(in mass);
         }
         else
         {
@@ -47,6 +48,8 @@ public class Ivan
     {
         Array.Resize(ref mass, mass.Length + 1);
         Add_Row(ref mass, in BonusRow_Index());
+        Console.WriteLine("/nРезультуючий масив");
+        Print_Jagged_Mass(in mass);
         return mass;
     }
     static int BonusRow_Index()
@@ -81,8 +84,10 @@ public class Ivan
         }
         Row_With_Max_Element(in int[][] mass, out int index)
         Array.Reverse(mass[index]);
-        Console.WriteLine("/nРеверсивний рядок/n");
+        Console.WriteLine("/nРеверсивний рядок");
         PrintMassAsOneString(in mass[index]);
+        Console.WriteLine("/nРезультуючий масив");
+        Print_Jagged_Mass(in mass);
         return mass;
     }
     static void Row_With_Max_Element(in int[][] mass, out int index)
@@ -106,5 +111,17 @@ public class Ivan
             str += item + " ";
         }
         Console.WriteLine(str.Trim());
+    }
+    static void Print_Jagged_Mass(in int[][] mass)
+    {
+        for (int i = 0; i < mass.Length; i++)
+        {
+            string str = " ";
+            for (int j = 0; j < mass[i].Length; j++)
+            {
+                str += mass[i][j] + " ";
+            }
+            Console.WriteLine(str.Trim());
+        }
     }
 }
