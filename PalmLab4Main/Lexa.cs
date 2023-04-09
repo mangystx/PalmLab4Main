@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
-namespace Lb4
+namespace PalmLab4
 {
-    public class Program
+    public class Lexa
     {
         static int[] FindCountNegNum(int[] arrayStartNumbers)
         {
