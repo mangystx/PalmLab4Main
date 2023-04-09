@@ -2,19 +2,20 @@ namespace PalmLab4;
 
 public class Ivan
 {
-    static void Find_Even_One(ref int[] mass)
+    //Завдання №1
+    static int[] Find_Even_One(ref int[] mass)
     {
         if (Is_Even_Exists(in mass, out int indexOfEvenNumber))
         {
             Console.WriteLine($"\nНомер парного елементу |{indexOfEvenNumber + 1}|");
             Delete_Element(ref mass, mass.Length, indexOfEvenNumber);
             Console.WriteLine("\nРезультуючий масив");
-            PrintMassAsOneString(in mass);
         }
         else
         {
             Console.WriteLine("\nНемає парних елементiв в масивi");
         }
+        return mass;
     }
     static bool Is_Even_Exists(in int[] mass, out int indexOfEvenNumber)
     {
@@ -41,78 +42,28 @@ public class Ivan
         }
         Array.Resize(ref mass, n - 1);
     }
-    static void PrintMassAsOneString(in int[] mass)
+    //Завдання №2
+    static int[][] Extend_Mass(ref int[][] mass)
     {
-        string str = " ";
-        foreach (int item in mass)
-        {
-            str += item + " ";
-        }
-        Console.WriteLine(str.Trim());
+        Array.Resize(ref mass, mass.Length + 1);
+        Add_Row(ref mass, in BonusRow_Index());
+        return mass;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    static bool Random_Or_Not()
+    static int BonusRow_Index()
     {
-        bool byHand = true;
-        Console.WriteLine("1 - Вручну       2 - Випадково");
-        int n;
-        do
-        {
-            n = int.Parse(Console.ReadLine());
-            switch (n)
-            {
-                case 1:
-                    break;
-                case 2:
-                    byHand = false;
-                    break;
-                default:
-                    Console.WriteLine("1 - Вручну       2 - Випадково");
-                    break;
-            }
-        } while (n < 1 | n > 2);
-        return byHand;
+        Console.WriteLine("\nВи додаєте рядок з номером");
+        int index = int.Parse(Console.ReadLine()) - 1;
+        return index;
     }
     static void Add_Row(ref int[][] mass, in int index)
     {
         Console.WriteLine("\nРядок, який додається, вписується");
-        if (Random_Or_Not())
-        {
-            mass[index] = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
-        }
-        else
-        {
-            Random rnd = new Random();
-            mass[index] = new int[rnd.Next(1, 11)];
-            string str = "";
-            for (int i = 0; i < mass[index].Length; i++)
-            {
-                mass[index][i] = rnd.Next(-100, 101);
-                str += mass[index][i] + " ";
-            }
-            Console.WriteLine($"\nДоданий випадковий рядок\n{str.Trim()}");
-        }
+        mass[index] = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    static void Change_ZeroElement_With_MinElement(ref int[][] mass, in int n)
+    //Завдання №3
+    static int[][] Change_ZeroElement_With_MinElement(ref int[][] mass)
     {
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < mass.Length; i++)
         {
             int minInt = mass[i][0];
             int k = 0;
@@ -128,12 +79,17 @@ public class Ivan
             mass[i][0] = mass[i][k];
             mass[i][k] = temp;
         }
+        Row_With_Max_Element(in int[][] mass, out int index)
+        Array.Reverse(mass[index]);
+        Console.WriteLine("/nРеверсивний рядок/n");
+        PrintMassAsOneString(in mass[index]);
+        return mass;
     }
-    static void Row_With_Max_Element(in int[][] mass, in int n, out int index)
+    static void Row_With_Max_Element(in int[][] mass, out int index)
     {
         int maxInt = mass[0][0];
         index = 0;
-        for (int i = 1; i < n; i++)
+        for (int i = 1; i < mass.Length; i++)
         {
             if (mass[i][0] > maxInt)
             {
@@ -141,5 +97,14 @@ public class Ivan
                 index = i;
             }
         }
+    }
+    static void PrintMassAsOneString(in int[] mass)
+    {
+        string str = " ";
+        foreach (int item in mass)
+        {
+            str += item + " ";
+        }
+        Console.WriteLine(str.Trim());
     }
 }
