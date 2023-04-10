@@ -88,17 +88,6 @@ namespace PalmLab4
             (arrayStart[indexMaxVal - 1], arrayStart[arrayStart.GetLength(0) - 1]) = (arrayStart[arrayStart.GetLength(0) - 1], arrayStart[indexMaxVal - 1]);
             return arrayStart;
         }
-        public static void OutPutBlock2(int[][] arrayStart)
-        {
-            for (int i = 0; i < arrayStart.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayStart[i].Length; j++)
-                {
-                    Console.Write($"{arrayStart[i][j]}");
-                }
-                Console.WriteLine();
-            }
-        }
         public void MainMethodBlock2()
         {
             int[][] arrayStart = { };
@@ -210,24 +199,17 @@ namespace PalmLab4
         {
             int[][] arrayOfNumbers_First = null;
             int[][] arrayOfNumbers_Second = null;
-            OutPutBlock3(arrayOfNumbers_First, arrayOfNumbers_Second);
+            OutPutBlock3_2(arrayOfNumbers_First);
+            OutPutBlock3_2(arrayOfNumbers_Second);
             FindAndFillArrayWithIdenticalElement(arrayOfNumbers_First, arrayOfNumbers_Second);
         }
-        public static void OutPutBlock3(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static void OutPutBlock3_2(int[][] arrayStart)
         {
-            for (int i = 0; i < arrayOfNumbers_First.GetLength(0); i++)
+            for (int i = 0; i < arrayStart.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayOfNumbers_First[i].Length; j++)
+                for (int j = 0; j < arrayStart[i].Length; j++)
                 {
-                    Console.Write($"{arrayOfNumbers_First[i][j]} ");
-                }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < arrayOfNumbers_Second.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayOfNumbers_Second[i].Length; j++)
-                {
-                    Console.Write($"{arrayOfNumbers_Second[i][j]} ");
+                    Console.Write($"{arrayStart[i][j]}");
                 }
                 Console.WriteLine();
             }
