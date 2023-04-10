@@ -1,128 +1,135 @@
-namespace PalmLab4;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Ivan
+namespace PalmLab4
 {
-    //Завдання №1
-    public static void Find_Even_One(ref int[] mass)
+    public class Ivan
     {
-        if (Is_Even_Exists(in mass, out int indexOfEvenNumber))
+        //Завдання №1
+        public static void Find_Even_One(ref int[] mass)
         {
-            Console.WriteLine($"\nНомер парного елементу |{indexOfEvenNumber + 1}|");
-            Delete_Element(ref mass, mass.Length, indexOfEvenNumber);
-            Console.WriteLine("\nРезультуючий масив");
-            PrintMassAsOneString(in mass);
-        }
-        else
-        {
-            Console.WriteLine("\nНемає парних елементiв в масивi");
-        }
-    }
-    public static bool Is_Even_Exists(in int[] mass, out int indexOfEvenNumber)
-    {
-        indexOfEvenNumber = -1;
-        bool isEven = false;
-        foreach (int item in mass)
-        {
-            indexOfEvenNumber++;
-            if (Math.Abs(item) % 2 == 0)
+            if (Is_Even_Exists(mass, out int indexOfEvenNumber))
             {
-                isEven = true;
-                break;
+                Console.WriteLine($"\nНомер парного елементу |{indexOfEvenNumber + 1}|");
+                Delete_Element(ref mass, mass.Length, indexOfEvenNumber);
+                Console.WriteLine("\nРезультуючий масив");
+                PrintMassAsOneString(in mass);
+            }
+            else
+            {
+                Console.WriteLine("\nНемає парних елементiв в масивi");
             }
         }
-        return isEven;
-    }
-    public static void Delete_Element(ref int[] mass, int n, int indexOfEvenNumber)
-    {
-        indexOfEvenNumber++;
-        while (indexOfEvenNumber < n)
+        public static bool Is_Even_Exists(int[] mass, out int indexOfEvenNumber)
         {
-            mass[indexOfEvenNumber - 1] = mass[indexOfEvenNumber];
-            indexOfEvenNumber++;
-        }
-        Array.Resize(ref mass, n - 1);
-    }
-    //Завдання №2
-    public static void Extend_Mass(ref int[][] mass)
-    {
-        Array.Resize(ref mass, mass.Length + 1);
-        Add_Row(ref mass, in BonusRow_Index());
-        Console.WriteLine("/nРезультуючий масив");
-        Print_Jagged_Mass(in mass);
-    }
-    public static int BonusRow_Index()
-    {
-        Console.WriteLine("\nВи додаєте рядок з номером");
-        int index = int.Parse(Console.ReadLine()) - 1;
-        return index;
-    }
-    public static void Add_Row(ref int[][] mass, in int index)
-    {
-        Console.WriteLine("\nВпишiть рядок, який додається");
-        mass[index] = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
-    }
-    //Завдання №3
-    public static void Change_ZeroElement_With_MinElement(ref int[][] mass)
-    {
-        for (int i = 0; i < mass.Length; i++)
-        {
-            int minInt = mass[i][0];
-            int k = 0;
-            for (int j = 1; j < mass[i].Length; j++)
+            indexOfEvenNumber = -1;
+            bool isEven = false;
+            foreach (int item in mass)
             {
-                if (mass[i][j] < minInt)
+                indexOfEvenNumber++;
+                if (Math.Abs(item) % 2 == 0)
                 {
-                    minInt = mass[i][j];
-                    k = j;
+                    isEven = true;
+                    break;
                 }
             }
-            int temp = mass[i][0];
-            mass[i][0] = mass[i][k];
-            mass[i][k] = temp;
+            return isEven;
         }
-        Console.WriteLine("/nМасив, пiсля замiни елементiв");
-        Print_Jagged_Mass(in mass);
-        Row_With_Max_Element(in int[][] mass, out int index);
-        Console.WriteLine($"/nРядок з першим максимальним елементом |{index + 1}|");
-        PrintMassAsOneString(in mass[index]);
-        Array.Reverse(mass[index]);
-        Console.WriteLine("/nРеверсивний рядок");
-        PrintMassAsOneString(in mass[index]);
-        Console.WriteLine("/nРезультуючий масив");
-        Print_Jagged_Mass(in mass);
-    }
-    public static void Row_With_Max_Element(in int[][] mass, out int index)
-    {
-        int maxInt = mass[0][0];
-        index = 0;
-        for (int i = 1; i < mass.Length; i++)
+        public static void Delete_Element(ref int[] mass, int n, int indexOfEvenNumber)
         {
-            if (mass[i][0] > maxInt)
+            indexOfEvenNumber++;
+            while (indexOfEvenNumber < n)
             {
-                maxInt = mass[i][0];
-                index = i;
+                mass[indexOfEvenNumber - 1] = mass[indexOfEvenNumber];
+                indexOfEvenNumber++;
+            }
+            Array.Resize(ref mass, n - 1);
+        }
+        //Завдання №2
+        public static void Extend_Mass(ref int[][] mass)
+        {
+            Array.Resize(ref mass, mass.Length + 1);
+            Add_Row(ref mass, in BonusRow_Index());
+            Console.WriteLine("/nРезультуючий масив");
+            Print_Jagged_Mass(in mass);
+        }
+        public static int BonusRow_Index()
+        {
+            Console.WriteLine("\nВи додаєте рядок з номером");
+            int index = int.Parse(Console.ReadLine()) - 1;
+            return index;
+        }
+        public static void Add_Row(ref int[][] mass, in int index)
+        {
+            Console.WriteLine("\nВпишiть рядок, який додається");
+            mass[index] = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
+        }
+        //Завдання №3
+        public static void Change_ZeroElement_With_MinElement(ref int[][] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+            {
+                int minInt = mass[i][0];
+                int k = 0;
+                for (int j = 1; j < mass[i].Length; j++)
+                {
+                    if (mass[i][j] < minInt)
+                    {
+                        minInt = mass[i][j];
+                        k = j;
+                    }
+                }
+                int temp = mass[i][0];
+                mass[i][0] = mass[i][k];
+                mass[i][k] = temp;
+            }
+            Console.WriteLine("/nМасив, пiсля замiни елементiв");
+            Print_Jagged_Mass(in mass);
+            Row_With_Max_Element(in int[][] mass, out int index);
+            Console.WriteLine($"/nРядок з першим максимальним елементом |{index + 1}|");
+            PrintMassAsOneString(in mass[index]);
+            Array.Reverse(mass[index]);
+            Console.WriteLine("/nРеверсивний рядок");
+            PrintMassAsOneString(in mass[index]);
+            Console.WriteLine("/nРезультуючий масив");
+            Print_Jagged_Mass(in mass);
+        }
+        public static void Row_With_Max_Element(in int[][] mass, out int index)
+        {
+            int maxInt = mass[0][0];
+            index = 0;
+            for (int i = 1; i < mass.Length; i++)
+            {
+                if (mass[i][0] > maxInt)
+                {
+                    maxInt = mass[i][0];
+                    index = i;
+                }
             }
         }
-    }
-    public static void PrintMassAsOneString(in int[] mass)
-    {
-        string str = " ";
-        foreach (int item in mass)
-        {
-            str += item + " ";
-        }
-        Console.WriteLine(str.Trim());
-    }
-    public static void Print_Jagged_Mass(in int[][] mass)
-    {
-        for (int i = 0; i < mass.Length; i++)
+        public static void PrintMassAsOneString(in int[] mass)
         {
             string str = " ";
-            for (int j = 0; j < mass[i].Length; j++)
+            foreach (int item in mass)
             {
-                str += mass[i][j] + " ";
+                str += item + " ";
             }
             Console.WriteLine(str.Trim());
+        }
+        public static void Print_Jagged_Mass(in int[][] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+            {
+                string str = " ";
+                for (int j = 0; j < mass[i].Length; j++)
+                {
+                    str += mass[i][j] + " ";
+                }
+                Console.WriteLine(str.Trim());
+            }
         }
     }
 }
