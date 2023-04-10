@@ -94,13 +94,13 @@ namespace PalmLab4
             int indexMaxVal = 0;
             arrayStart = ResizeStartArray_Block2(arrayStart);
             arrayStart = ReplaceStartArray_Block2(arrayStart, indexMaxVal); //indexMaxValInArray наибольший елемент миссива
-            OutPutBlock2(arrayStart);
+            OutPutBlock3_2(arrayStart);
         }
         public static int[] FindNumOfSelectNum(int[] arrayIdenticalElements, int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
         {
             if (arrayIdenticalElements.Length != 0)
             {
-                int sumRowsAndColm = SumAllRowsAndColmInTwoArrays(arrayOfNumbers_First, arrayOfNumbers_Second);
+                int sumRowsAndColm = SumAllRowsAndColmInTwoArrays(arrayOfNumbers_First);
                 Console.WriteLine("\nВведіть число");
                 int numTheFindInArr = int.Parse(Console.ReadLine());
                 int[] indexFindNum = new int[2];
@@ -186,7 +186,7 @@ namespace PalmLab4
                 return arrayIdenticalElements;
             }
         }
-        public static int SumAllRowsAndColmInTwoArrays(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static int SumAllRowsAndColmInTwoArrays(int[][] arrayOfNumbers_First)
         {
             int sumRowsAndColm = arrayOfNumbers_First.GetLength(0) * 2;
             for (int i = 0; i < arrayOfNumbers_First.GetLength(0); i++)
