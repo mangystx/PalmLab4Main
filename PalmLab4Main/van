@@ -1,8 +1,8 @@
-﻿namespace PalmLab4
+namespace PalmLab4
 {
     internal class VanDarckhoule
     {
-        static int[] Main(int[] arr)
+        public static int[] VanVol1(int[] arr)
         {
             int max = int.MinValue;
             int min = int.MaxValue;
@@ -37,7 +37,7 @@
 
             return arr;
         }
-        static int[][] VanVol3(int[][] jaggedArray)
+        public static int[][] VanVol2(int[][] jaggedArray)
         {
             int maxElement = jaggedArray[0][0];
             int maxRowIndex = 0;
@@ -76,7 +76,7 @@
 
             return newJaggedArray;
         }
-        static int[][] VanVol3(int[,] B)
+        public static int[][] VanVol3(int[,] B)
         {
             int[] P = new int[B.GetLength(0)];
             for (int i = 0; i < B.GetLength(0); i++)
