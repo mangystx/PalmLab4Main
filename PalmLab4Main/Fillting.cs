@@ -2,7 +2,7 @@
 {
     internal class Fillting
     {
-        static int[,] FillArrayRandom(int rows, int cols)
+        public static int[,] FillArrayRandom(int rows, int cols)
         {
             int[,] array = new int[rows, cols];
             Random random = new Random();
@@ -15,25 +15,25 @@
             }
             return array;
         }
-        static int[,] FillArrayFromKeyboard(int rows, int cols)
+        public static int[,] FillArrayFromKeyboard(int rows, int cols)
         {
             int[,] array = new int[rows, cols];
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    Console.Write("Ввідить елемент [{0}, {1}]: ", i, j);
+                    Console.Write("Введіть елемент [{0}, {1}]: ", i, j);
                     array[i, j] = int.Parse(Console.ReadLine());
                 }
             }
             return array;
         }
-        static int[,] FillArrayFromKeyboard2(int n, int m)
+        public static int[,] FillArrayFromKeyboard2(int n, int m)
         {
             int[,] matrix = new int[n, m];
             for (int i = 0; i < n; i++)
             {
-                Console.Write($"Введіть елементы {i + 1}-го рядка через пробіл: ");
+                Console.Write($"Введіть елементи {i + 1}-го рядка через пробіл: ");
                 string[] input = Console.ReadLine().Split();
                 for (int j = 0; j < m; j++)
                 {
@@ -42,7 +42,7 @@
             }
             return matrix;
         }
-        static int[] FillArrayWithRandom(int[] arr, int minValue, int maxValue)
+        public static int[] FillArrayWithRandom(int[] arr, int minValue, int maxValue)
         {
             Random rand = new Random();
             for (int i = 0; i < arr.Length; i++)
@@ -51,9 +51,9 @@
             }
             return arr;
         }
-        static int[] FillArrayFromConsoleWithSpace(int[] arr)
+        public static int[] FillArrayFromConsoleWithSpace(int[] arr)
         {
-            Console.WriteLine($"Введiте {arr.Length} чисел через пробiл:");
+            Console.WriteLine("Введiть {0} {1} через пробiл:", arr.Length, arr.Length is > 1 and <= 4 ? "числа" : "чисел");
             string input = Console.ReadLine();
             string[] inputArr = input.Split(' ');
             for (int i = 0; i < arr.Length; i++)
@@ -62,16 +62,16 @@
             }
             return arr;
         }
-        static int[] FillArrayFromConsoleWithEnter(int[] arr)
+        public static int[] FillArrayFromConsoleWithEnter(int[] arr)
         {
-            Console.WriteLine($"Введiте {arr.Length} чисел по одному:");
+            Console.WriteLine("Введiть {0} {1} по одному:", arr.Length, arr.Length is > 1 and <= 4 ? "числа" : "чисел");
             for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = int.Parse(Console.ReadLine());
             }
             return arr;
         }
-        static int[][] FillJaggedArrayWithRandom(int[][] arr, int minValue, int maxValue)
+        public static int[][] FillJaggedArrayWithRandom(int[][] arr, int minValue, int maxValue)
         {
             Random rand = new Random();
             for (int i = 0; i < arr.Length; i++)
@@ -84,9 +84,9 @@
             }
             return arr;
         }
-        static int[][] FillJaggedArrayFromConsoleWithSpace(int[][] arr)
+        public static int[][] FillJaggedArrayFromConsoleWithSpace(int[][] arr)
         {
-            Console.WriteLine($"Введiте {arr.Length} масивiв, кожний через пробiл:");
+            Console.WriteLine("Введiть {0} {1}, кожний через пробiл:", arr.Length, arr.Length is > 1 and <= 4 ? "масива" : "масивів");
             for (int i = 0; i < arr.Length; i++)
             {
                 string input = Console.ReadLine();
@@ -99,14 +99,15 @@
             }
             return arr;
         }
-        static int[][] FillJaggedArrayFromConsoleWithEnter(int[][] arr)
+        public static int[][] FillJaggedArrayFromConsoleWithEnter(int[][] arr)
         {
-            Console.WriteLine($"Введiте {arr.Length} масивiв, кожний по одному числу:");
+            Console.WriteLine("Введiть {0} {1}, кожний по одному числу:", arr.Length, arr.Length is > 1 and <= 4 ? "масива" : "масивів");
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine($"Введiть кількiсть чисел в масивi {i + 1}:");
                 int length = int.Parse(Console.ReadLine());
                 arr[i] = new int[length];
+                
                 Console.WriteLine($"Введiть {length} чисел масива {i + 1}:");
                 for (int j = 0; j < length; j++)
                 {

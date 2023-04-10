@@ -2,7 +2,7 @@ namespace PalmLab4;
 
 public class Billy
 {
-    static int[] DeleteKey(int[] arr, int key)
+    public static int[] DeleteKey(int[] arr, int key)
     {
         bool change = false;
         int delIndex = -1;
@@ -36,7 +36,7 @@ public class Billy
         return arr;
     }
     
-    static void Add3RowsInTwoDimArr(ref int[][] arr)
+    public static void Add3RowsInTwoDimArr(ref int[][] arr)
     {
         Array.Resize(ref arr, arr.Length + 3);
         for (int i = arr.Length - 4; i >= 0; i--)
@@ -50,7 +50,7 @@ public class Billy
         }
     }
     
-    static void Add3RowsInTwoDimArrWithList(ref List<int[]> list)
+    public static void Add3RowsInTwoDimArrWithList(ref List<int[]> list)
     {
         for (int i = 0; i < 3; i++)
         {
@@ -58,7 +58,7 @@ public class Billy
         }
     }
     
-    static int[][] Block3(ref int[][] arrA)
+    public static int[][] Block3(ref int[][] arrA)
     {
         int[][] arrB = new int[arrA.Length][];
         for (int i = 0; i < arrA.Length; i++)
