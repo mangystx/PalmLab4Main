@@ -128,16 +128,18 @@ static void ChooseYourChampionBlock2(ref int[][] arr)
     switch (Console.ReadLine())
     {
         case "1":
+            Console.Write("Введіть K -> ");
+            int k = int.Parse(Console.ReadLine());
             Console.WriteLine("Для того щоб виконати завдання з використанням list введіть 1," +
                               " для звичайного виконання введіть 2");
             switch (Console.ReadLine())
             {
                 case "1":
-                    Billy.Add3RowsInJagArrWithList(ref arrListVersion);
+                    Billy.AddKRowsInJagArrWithList(ref arrListVersion, k);
                     PrintJagArr(arrListVersion.ToArray());
                     break;
                 case "2":
-                    Billy.Add3RowsInJagArr(ref arr);
+                    Billy.AddKRowsInJagArr(ref arr, k);
                     PrintJagArr(arr);
                     break;
                 default:
@@ -165,7 +167,10 @@ static void ChooseYourChampionBlock3(ref int[][] arr)
     switch (Console.ReadLine())
     {
         case "1":
-            Billy.Block3(ref arr);
+            Console.WriteLine("Матриця B:");
+            PrintJagArr(Billy.Block3(ref arr));
+            Console.WriteLine("Матриця A:");
+            PrintJagArr(arr);
             break;
         case "2":
             break;

@@ -108,7 +108,7 @@
                 int length = int.Parse(Console.ReadLine());
                 arr[i] = new int[length];
                 
-                Console.WriteLine($"Введiть {length} чисел масива {i + 1}:");
+                Console.WriteLine("Введiть {0} {1} масива {2}:", length, length is > 1 and <= 4 ? "числа" : "чисел", i + 1);
                 for (int j = 0; j < length; j++)
                 {
                     arr[i][j] = int.Parse(Console.ReadLine());

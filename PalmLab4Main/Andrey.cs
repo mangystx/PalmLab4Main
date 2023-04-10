@@ -36,23 +36,23 @@ public class Billy
         return arr;
     }
     
-    public static void Add3RowsInJagArr(ref int[][] arr)
+    public static void AddKRowsInJagArr(ref int[][] arr, int k)
     {
-        Array.Resize(ref arr, arr.Length + 3);
-        for (int i = arr.Length - 4; i >= 0; i--)
+        Array.Resize(ref arr, arr.Length + k);
+        for (int i = arr.Length - k - 1; i >= 0; i--)
         {
-            arr[i + 3] = arr[i];
+            arr[i + k] = arr[i];
         }
     
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < k; i++)
         {
-            arr[i] = new int[arr[3].Length];
+            arr[i] = new int[arr[k].Length];
         }
     }
     
-    public static void Add3RowsInJagArrWithList(ref List<int[]> list)
+    public static void AddKRowsInJagArrWithList(ref List<int[]> list, int k)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < k; i++)
         {
             list.Insert(0, new int[list[0].Length]);
         }
