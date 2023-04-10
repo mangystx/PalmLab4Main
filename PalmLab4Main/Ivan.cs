@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bonk                              /*PalmLab4*/
+namespace PalmLab4
 {
     public class Ivan
     {
