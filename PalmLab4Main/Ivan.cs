@@ -52,7 +52,7 @@ namespace PalmLab4
         public static void Extend_Mass(ref int[][] mass)
         {
             Array.Resize(ref mass, mass.Length + 1);
-            Add_Row(ref mass, in BonusRow_Index());
+            Add_Row(ref mass, BonusRow_Index());
             Console.WriteLine("/nРезультуючий масив");
             Print_Jagged_Mass(in mass);
         }
@@ -62,7 +62,7 @@ namespace PalmLab4
             int index = int.Parse(Console.ReadLine()) - 1;
             return index;
         }
-        public static void Add_Row(ref int[][] mass, in int index)
+        public static void Add_Row(ref int[][] mass, int index)
         {
             Console.WriteLine("\nВпишiть рядок, який додається");
             mass[index] = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
@@ -88,7 +88,7 @@ namespace PalmLab4
             }
             Console.WriteLine("/nМасив, пiсля замiни елементiв");
             Print_Jagged_Mass(in mass);
-            Row_With_Max_Element(in int[][] mass, out int index);
+            Row_With_Max_Element(in mass, out int index);
             Console.WriteLine($"/nРядок з першим максимальним елементом |{index + 1}|");
             PrintMassAsOneString(in mass[index]);
             Array.Reverse(mass[index]);
