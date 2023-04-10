@@ -51,32 +51,11 @@ while (true)
 
             break;
         case "2":
-            Console.WriteLine("Введіть довжину зубчастого масиву");
-            int[][] JagArr = new int[int.Parse(Console.ReadLine())][];
-            Console.WriteLine("Введіть цифру відповідну способу " +
-                              "введення зубчастого масиву:\n" +
-                              "1 Заповнення випадковими числами\n" +
-                              "2 Заповення в рядок\n3 Заповнення в стовпчик");
-            switch (Console.ReadLine())
-            {
-                case "1":
-                    Console.Write("Введіть мінімальне та максимальне допустимі значення через пропуск -> ");
-                    int[] bord = (from num in Console.ReadLine().Trim().Split() select int.Parse(num)).ToArray();
-                    JagArr = Fillting.FillJaggedArrayWithRandom(JagArr, bord.Min(), bord.Max());
-                    Console.WriteLine("Ваш масив:");
-                    PrintJagArr(JagArr);
-                    break;
-                case "2":
-                    JagArr = Fillting.FillJaggedArrayFromConsoleWithSpace(JagArr);
-                    break;
-                case "3":
-                    JagArr = Fillting.FillJaggedArrayFromConsoleWithEnter(JagArr);
-                    break;
-            }
+            int[][] jagArr = GetJagArr();
             bool blockTwoGo = true;
             while (blockTwoGo)
             {
-                ChooseYourChampionBlock2(ref JagArr);
+                ChooseYourChampionBlock2(ref jagArr);
                 Console.WriteLine("Ведіть q якщо не бажаєте передати щойно опрацьований масив в метод іншого учня," +
                                   " в іншому випадку натисніть enter");
                 if (String.Compare("q", Console.ReadLine(), StringComparison.OrdinalIgnoreCase) == 0)
@@ -87,7 +66,20 @@ while (true)
             
             break;
         case "3":
-            ChooseYourChampionBlock3();
+            int[][] matrix = GetJagArr();
+            bool blockThreeGo = true;
+            while (blockThreeGo)
+            {
+                ChooseYourChampionBlock3(ref matrix);
+                Console.WriteLine("Ведіть q якщо не бажаєте передати щойно опрацьований масив в метод іншого учня," +
+                                  " в іншому випадку натисніть enter");
+                if (String.Compare("q", Console.ReadLine(), StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    blockThreeGo = false;
+                }
+            }
+            
+            break;
     }
 }
 
@@ -165,7 +157,7 @@ static void ChooseYourChampionBlock2(ref int[][] arr)
     }
 }
 
-static void ChooseYourChampionBlock3()
+static void ChooseYourChampionBlock3(ref int[][] arr)
 {
     Console.WriteLine("Введіть цифру відповідну номеру учня\n" +
                       "1 Марченко А.І.\n2 Каюк І.В.\n" +
@@ -173,7 +165,7 @@ static void ChooseYourChampionBlock3()
     switch (Console.ReadLine())
     {
         case "1":
-            
+            Billy.Block3(ref arr);
             break;
         case "2":
             break;
@@ -185,4 +177,32 @@ static void ChooseYourChampionBlock3()
             Console.WriteLine("Некоректне занчення");
             break;
     }
+}
+
+static int[][] GetJagArr()
+{
+    Console.WriteLine("Введіть довжину зубчастого масиву");
+    int[][] arr = new int[int.Parse(Console.ReadLine())][];
+    Console.WriteLine("Введіть цифру відповідну способу " +
+                      "введення зубчастого масиву:\n" +
+                      "1 Заповнення випадковими числами\n" +
+                      "2 Заповення в рядок\n3 Заповнення в стовпчик");
+    switch (Console.ReadLine())
+    {
+        case "1":
+            Console.Write("Введіть мінімальне та максимальне допустимі значення через пропуск -> ");
+            int[] bord = (from num in Console.ReadLine().Trim().Split() select int.Parse(num)).ToArray();
+            arr = Fillting.FillJaggedArrayWithRandom(arr, bord.Min(), bord.Max());
+            Console.WriteLine("Ваш масив:");
+            PrintJagArr(arr);
+            break;
+        case "2":
+            arr = Fillting.FillJaggedArrayFromConsoleWithSpace(arr);
+            break;
+        case "3":
+            arr = Fillting.FillJaggedArrayFromConsoleWithEnter(arr);
+            break;
+    }
+
+    return arr;
 }
