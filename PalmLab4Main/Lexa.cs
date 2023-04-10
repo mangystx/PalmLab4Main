@@ -5,7 +5,7 @@ namespace PalmLab4
 {
     public class Lexa
     {
-        static int[] FindCountNegNum(int[] arrayStartNumbers)
+        public static int[] FindCountNegNum(int[] arrayStartNumbers)
         {
             int counerNegativeNumbers = 0;
             int[] indexesOfAllNegativeArrayElements = new int[0];
@@ -22,7 +22,7 @@ namespace PalmLab4
             }
             return indexesOfAllNegativeArrayElements;
         }
-        static int[] FindIndexesNegNum(int[] arrayStartNumbers, int counerNegativeNumbers)
+        public static int[] FindIndexesNegNum(int[] arrayStartNumbers, int counerNegativeNumbers)
         {
             int[] indexesOfAllNegativeArrayElements = new int[counerNegativeNumbers];
             for (int i = 0, j = 0; i < arrayStartNumbers.Length; i++)
@@ -35,12 +35,12 @@ namespace PalmLab4
             }
             return indexesOfAllNegativeArrayElements;
         }
-        static int[] ResizePrimaryArray(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
+        public static int[] ResizePrimaryArray(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
         {
             Array.Resize(ref arrayStartNumbers, arrayStartNumbers.Length + indexesOfAllNegativeArrayElements.Length);
             return arrayStartNumbers;
         }
-        static int[] Replace(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
+        public static int[] Replace(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
         {
             for (int i = 1; i < indexesOfAllNegativeArrayElements.Length + 1; i++)
             {
@@ -51,7 +51,7 @@ namespace PalmLab4
             }
             return arrayStartNumbers;
         }
-        static int[] ReplaceZeros(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
+        public static int[] ReplaceZeros(int[] arrayStartNumbers, int[] indexesOfAllNegativeArrayElements)
         {
             for (int i = 0; i < indexesOfAllNegativeArrayElements.Length; i++)
             {
@@ -59,7 +59,7 @@ namespace PalmLab4
             }
             return arrayStartNumbers;
         }
-        static void MainBlock1()
+        public static void MainBlock1()
         {
             int[] arrayStartNumbers = { 3, 6, 9, -96, -4, 12, -4 };
             int[] indexesOfAllNegativeArrayElements = FindCountNegNum(arrayStartNumbers);
@@ -74,7 +74,7 @@ namespace PalmLab4
                 }
             }
         }
-        static int[][] ResizeStartArray_Block2(int[][] arrayStart)
+        public static int[][] ResizeStartArray_Block2(int[][] arrayStart)
         {
             Array.Resize(ref arrayStart, arrayStart.Length + 1);
             for (int i = arrayStart.Length - 1; i > arrayStart.Length - 2; i--)
@@ -83,21 +83,10 @@ namespace PalmLab4
             }
             return arrayStart;
         }
-        static int[][] ReplaceStartArray_Block2(int[][] arrayStart, int indexMaxVal)
+        public static int[][] ReplaceStartArray_Block2(int[][] arrayStart, int indexMaxVal)
         {
             (arrayStart[indexMaxVal - 1], arrayStart[arrayStart.GetLength(0) - 1]) = (arrayStart[arrayStart.GetLength(0) - 1], arrayStart[indexMaxVal - 1]);
             return arrayStart;
-        }
-        static void OutPutBlock2(int[][] arrayStart)
-        {
-            for (int i = 0; i < arrayStart.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayStart[i].Length; j++)
-                {
-                    Console.Write($"{arrayStart[i][j]}");
-                }
-                Console.WriteLine();
-            }
         }
         public void MainMethodBlock2()
         {
@@ -107,7 +96,7 @@ namespace PalmLab4
             arrayStart = ReplaceStartArray_Block2(arrayStart, indexMaxVal); //indexMaxValInArray наибольший елемент миссива
             OutPutBlock2(arrayStart);
         }
-        static int[] FindNumOfSelectNum(int[] arrayIdenticalElements, int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static int[] FindNumOfSelectNum(int[] arrayIdenticalElements, int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
         {
             if (arrayIdenticalElements.Length != 0)
             {
@@ -168,7 +157,7 @@ namespace PalmLab4
                 return arrayIdenticalElements;
             }
         }
-        static int[] FindAndFillArrayWithIdenticalElement(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static int[] FindAndFillArrayWithIdenticalElement(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
         {
             int[] arrayIdenticalElements = new int[0];
             for (int i = 0; i < arrayOfNumbers_First.GetLength(0) & i < arrayOfNumbers_Second.GetLength(0); i++)
@@ -197,7 +186,7 @@ namespace PalmLab4
                 return arrayIdenticalElements;
             }
         }
-        static int SumAllRowsAndColmInTwoArrays(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static int SumAllRowsAndColmInTwoArrays(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
         {
             int sumRowsAndColm = arrayOfNumbers_First.GetLength(0) * 2;
             for (int i = 0; i < arrayOfNumbers_First.GetLength(0); i++)
@@ -206,28 +195,21 @@ namespace PalmLab4
             }
             return sumRowsAndColm;
         }
-        public void MainMethodBlock3()
+        public static void MainMethodBlock3()
         {
             int[][] arrayOfNumbers_First = null;
             int[][] arrayOfNumbers_Second = null;
-            OutPutBlock3(arrayOfNumbers_First, arrayOfNumbers_Second);
+            OutPutBlock3_2(arrayOfNumbers_First);
+            OutPutBlock3_2(arrayOfNumbers_Second);
             FindAndFillArrayWithIdenticalElement(arrayOfNumbers_First, arrayOfNumbers_Second);
         }
-        public void OutPutBlock3(int[][] arrayOfNumbers_First, int[][] arrayOfNumbers_Second)
+        public static void OutPutBlock3_2(int[][] arrayStart)
         {
-            for (int i = 0; i < arrayOfNumbers_First.GetLength(0); i++)
+            for (int i = 0; i < arrayStart.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayOfNumbers_First[i].Length; j++)
+                for (int j = 0; j < arrayStart[i].Length; j++)
                 {
-                    Console.Write($"{arrayOfNumbers_First[i][j]} ");
-                }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < arrayOfNumbers_Second.GetLength(0); i++)
-            {
-                for (int j = 0; j < arrayOfNumbers_Second[i].Length; j++)
-                {
-                    Console.Write($"{arrayOfNumbers_Second[i][j]} ");
+                    Console.Write($"{arrayStart[i][j]}");
                 }
                 Console.WriteLine();
             }
