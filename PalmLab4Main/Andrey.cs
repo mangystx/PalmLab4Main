@@ -36,7 +36,7 @@ public class Billy
         return arr;
     }
     
-    public static void Add3RowsInTwoDimArr(ref int[][] arr)
+    public static void Add3RowsInJagArr(ref int[][] arr)
     {
         Array.Resize(ref arr, arr.Length + 3);
         for (int i = arr.Length - 4; i >= 0; i--)
@@ -50,7 +50,7 @@ public class Billy
         }
     }
     
-    public static void Add3RowsInTwoDimArrWithList(ref List<int[]> list)
+    public static void Add3RowsInJagArrWithList(ref List<int[]> list)
     {
         for (int i = 0; i < 3; i++)
         {
