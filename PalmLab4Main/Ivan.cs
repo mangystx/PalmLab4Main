@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PalmLab4
+namespace Bonk                              /*PalmLab4*/
 {
     public class Ivan
     {
@@ -53,7 +53,7 @@ namespace PalmLab4
         {
             Array.Resize(ref mass, mass.Length + 1);
             Add_Row(ref mass, BonusRow_Index());
-            Console.WriteLine("/nРезультуючий масив");
+            Console.WriteLine("\nРезультуючий масив");
             Print_Jagged_Mass(in mass);
         }
         public static int BonusRow_Index()
@@ -86,15 +86,15 @@ namespace PalmLab4
                 mass[i][0] = mass[i][k];
                 mass[i][k] = temp;
             }
-            Console.WriteLine("/nМасив, пiсля замiни елементiв");
+            Console.WriteLine("\nМасив, пiсля замiни елементiв");
             Print_Jagged_Mass(in mass);
             Row_With_Max_Element(in mass, out int index);
-            Console.WriteLine($"/nРядок з першим максимальним елементом |{index + 1}|");
+            Console.WriteLine($"\nРядок з першим максимальним елементом |{index + 1}|");
             PrintMassAsOneString(in mass[index]);
             Array.Reverse(mass[index]);
-            Console.WriteLine("/nРеверсивний рядок");
+            Console.WriteLine("\nРеверсивний рядок");
             PrintMassAsOneString(in mass[index]);
-            Console.WriteLine("/nРезультуючий масив");
+            Console.WriteLine("\nРезультуючий масив");
             Print_Jagged_Mass(in mass);
         }
         public static void Row_With_Max_Element(in int[][] mass, out int index)
