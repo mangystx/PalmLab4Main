@@ -52,15 +52,21 @@ namespace PalmLab4
         public static void Extend_Mass(ref int[][] mass)
         {
             Array.Resize(ref mass, mass.Length + 1);
-            Add_Row(ref mass, BonusRow_Index());
+            BonusRow_Index(out int index);
+            Push_Down_Roows(ref mass);
+            Add_Row(ref mass, index);
             Console.WriteLine("\nРезультуючий масив");
             Print_Jagged_Mass(in mass);
         }
-        public static int BonusRow_Index()
+
+        public static void Push_Down_Roows(ref int[][] mass)
+        {
+            
+        }
+        public static void BonusRow_Index(out int index)
         {
             Console.WriteLine("\nВи додаєте рядок з номером");
-            int index = int.Parse(Console.ReadLine()) - 1;
-            return index;
+            index = int.Parse(Console.ReadLine()) - 1;
         }
         public static void Add_Row(ref int[][] mass, int index)
         {
