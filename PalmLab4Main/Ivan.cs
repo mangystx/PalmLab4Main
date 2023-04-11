@@ -59,13 +59,12 @@ namespace PalmLab4
             Console.WriteLine("\nРезультуючий масив");
             Print_Jagged_Mass(in mass);
         }
-
         public static void Push_Down_Roows(ref int[][] mass, int index)
         {
             for (int i = mass.Length - 1; i > index; i--)
             {
                 (mass[i], mass[i - 1]) = (mass[i - 1], mass[i]);
-                Array.Resize(mass[i - 1], mass[i - 2].Length);
+                Array.Resize(ref mass[i - 1], mass[i - 2].Length);
             }
         }
         public static void BonusRow_Index(out int index)
