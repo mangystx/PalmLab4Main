@@ -104,6 +104,7 @@ static void ChooseYourChampionBlock1(ref int[] arr)
             Console.WriteLine(string.Join(", ", arr));
             break;
         case "2":
+            Ivan.Find_Even_One(ref arr);
             break;
         case "3":
             break;
@@ -148,6 +149,7 @@ static void ChooseYourChampionBlock2(ref int[][] arr)
             }
             break;
         case "2":
+            Ivan.Extend_Mass(ref arr);
             break;
         case "3":
             break;
@@ -173,6 +175,7 @@ static void ChooseYourChampionBlock3(ref int[][] arr)
             PrintJagArr(arr);
             break;
         case "2":
+            Ivan.Change_ZeroElement_With_MinElement(ref arr);
             break;
         case "3":
             break;
