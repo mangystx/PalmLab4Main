@@ -33,7 +33,7 @@ while (true)
                     Thread.Sleep(1000);
                     Console.WriteLine("1");
                     Thread.Sleep(1000);
-                    Console.WriteLine("BB");
+                    Console.WriteLine("BB братик\nЦе ШД-шка");
                     break;
             }
 
