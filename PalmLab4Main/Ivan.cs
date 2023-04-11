@@ -52,6 +52,7 @@ namespace PalmLab4
         public static void Extend_Mass(ref int[][] mass)
         {
             Array.Resize(ref mass, mass.Length + 1);
+            mass[mass.Length - 1] = new int[mass[mass.Length - 2].Length];
             BonusRow_Index(out int index);
             Push_Down_Roows(ref mass, index);
             Add_Row(ref mass, index);
@@ -61,14 +62,11 @@ namespace PalmLab4
 
         public static void Push_Down_Roows(ref int[][] mass, int index)
         {
-            \\mass[mass.Length - 1] = new int[mass[mass.length - 1].Length];
-            \\for (int i = mass.Length - 1; i > index; i--)
-            \\{
-            \\    for (int j = 0; j < mass[i].Length; j++)
-            \\    {
-            \\        (mass[i][j], mass[i - 1][j]) = (mass[i - 1][j], mass[i][j]);
-            \\    }
-            \\}
+            for (int i = mass.Length - 1; i > index; i--)
+            {
+                (mass[i], mass[i - 1]) = (mass[i - 1], mass[i]);
+                Array.Resize(mass[i], mass[i - 1].Length);
+            }
         }
         public static void BonusRow_Index(out int index)
         {
