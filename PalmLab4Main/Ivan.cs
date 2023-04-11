@@ -65,7 +65,7 @@ namespace PalmLab4
             for (int i = mass.Length - 1; i > index; i--)
             {
                 (mass[i], mass[i - 1]) = (mass[i - 1], mass[i]);
-                Array.Resize(mass[i], mass[i - 1].Length);
+                Array.Resize(mass[i - 1], mass[i - 2].Length);
             }
         }
         public static void BonusRow_Index(out int index)
