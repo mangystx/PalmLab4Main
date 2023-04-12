@@ -107,12 +107,12 @@ while (true)
                                 PrintJagArr(matrixLexa2);
                                 break;
                             case "2":
-                                matrixLexa1 = Fillting.FillJaggedArrayFromConsoleWithSpace(matrixLexa1);
-                                matrixLexa2 = Fillting.FillJaggedArrayFromConsoleWithSpace(matrixLexa2);
+                                matrixLexa1 = Fillting.FillJaggedArrayWithSpace(matrixLexa1);
+                                matrixLexa2 = Fillting.FillJaggedArrayWithSpace(matrixLexa2);
                                 break;
                             case "3":
                                 matrixLexa1 = Fillting.FillJaggedArrayFromConsoleWithEnter(matrixLexa1);
-                                matrixLexa2 = Fillting.FillJaggedArrayFromConsoleWithSpace(matrixLexa2);
+                                matrixLexa2 = Fillting.FillJaggedArrayWithSpace(matrixLexa2);
                                 break;
                             default:
                                 Console.WriteLine("Некоректне занчення,перехід до кейсу 1");
@@ -283,7 +283,7 @@ static int[][] GetJagArr()
             PrintJagArr(arr);
             break;
         case "2":
-            arr = Fillting.FillJaggedArrayFromConsoleWithSpace(arr);
+            arr = Fillting.FillJaggedArrayWithSpace(arr);
             break;
         case "3":
             arr = Fillting.FillJaggedArrayFromConsoleWithEnter(arr);
