@@ -162,6 +162,12 @@ break;");
             
             break;
     }
+
+    Console.WriteLine("Якщо бажаєте вийти введіть q");
+    if (string.Compare(Console.ReadLine(), "q", StringComparison.OrdinalIgnoreCase) == 0)
+    {
+        break;
+    }
 }
 
 static void PrintJagArr(int[][] arr)
