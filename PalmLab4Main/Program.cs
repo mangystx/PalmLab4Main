@@ -1,21 +1,21 @@
-﻿using PalmLab4;
+using PalmLab4;
 
 while (true)
 {
-    Console.WriteLine("Введіть номер завдання");
+    Console.WriteLine("Введiть номер завдання");
     switch (Console.ReadLine())
     {
         case "1":
-            Console.WriteLine("Введіть довжину одновимірного масиву");
+            Console.WriteLine("Введiть довжину одновимiрного масиву");
             int[] arr = new int[int.Parse(Console.ReadLine())];
-            Console.WriteLine("Введіть цифру відповідну способу " +
-                              "введення одновимірного масиву:\n" +
+            Console.WriteLine("Введiть цифру вiдповiдну способу " +
+                              "введення одновимiрного масиву:\n" +
                               "1 Заповнення випадковими числами\n" +
                               "2 Заповення в рядок\n3 Заповнення в стовпчик");
             switch (Console.ReadLine())
             {
                 case "1":
-                    Console.Write("Введіть мінімальне та максимальне допустимі значення через пропуск -> ");
+                    Console.Write("Введiть мiнiмальне та максимальне допустимi значення через пропуск -> ");
                     int[] bord = (from num in Console.ReadLine().Trim().Split() select int.Parse(num)).ToArray();
                     arr = Fillting.FillArrayWithRandom(arr, bord.Min(), bord.Max());
                     Console.WriteLine($"Ваш масив: {String.Join(", ", arr)}\n");
@@ -41,8 +41,8 @@ while (true)
             while (blockOneGo)
             {
                 ChooseYourChampionBlock1(ref arr);
-                Console.WriteLine("Ведіть q якщо не бажаєте передати щойно опрацьований масив в метод іншого учня," +
-                                  " в іншому випадку натисніть enter");
+                Console.WriteLine("Ведiть q якщо не бажаєте передати щойно опрацьований масив в метод iншого учня," +
+                                  " в iншому випадку натиснiть enter");
                 if (String.Compare("q", Console.ReadLine(), StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     blockOneGo = false;
@@ -56,8 +56,8 @@ while (true)
             while (blockTwoGo)
             {
                 ChooseYourChampionBlock2(ref jagArr);
-                Console.WriteLine("Ведіть q якщо не бажаєте передати щойно опрацьований масив в метод іншого учня," +
-                                  " в іншому випадку натисніть enter");
+                Console.WriteLine("Ведiть q якщо не бажаєте передати щойно опрацьований масив в метод iншого учня," +
+                                  " в iншому випадку натиснiть enter");
                 if (String.Compare("q", Console.ReadLine(), StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     blockTwoGo = false;
@@ -69,9 +69,9 @@ while (true)
             bool blockThreeGo = true;
             while (blockThreeGo)
             {
-                Console.WriteLine("Введіть цифру відповідну номеру учня\n" +
-                                  "1 Марченко А.І.\n2 Каюк І.В.\n" +
-                                  "3 Мартиненко О.С.\n4 Шафієв Д.Ю.");
+                Console.WriteLine("Введiть цифру вiдповiдну номеру учня\n" +
+                                  "1 Марченко А.i.\n2 Каюк i.В.\n" +
+                                  "3 Мартиненко О.С.\n4 Шафiєв Д.Ю.");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -83,20 +83,20 @@ while (true)
                         ChooseYourChampionBlock3(ref matrixIvan, 2);
                         break;
                     case "3":
-                        Console.WriteLine("Введіть довжину першого зубчастого масиву");
+                        Console.WriteLine("Введiть довжину першого зубчастого масиву");
                         int[][] matrixLexa1 = new int[int.Parse(Console.ReadLine())][];
                         
-                        Console.WriteLine("Введіть довжину другого зубчастого масиву");
+                        Console.WriteLine("Введiть довжину другого зубчастого масиву");
                         int[][] matrixLexa2 = new int[int.Parse(Console.ReadLine())][];
                         
-                        Console.WriteLine("Введіть цифру відповідну способу " +
+                        Console.WriteLine("Введiть цифру вiдповiдну способу " +
                                           "введення зубчастого масиву:\n" +
                                           "1 Заповнення випадковими числами\n" +
                                           "2 Заповення в рядок\n3 Заповнення в стовпчик");
                         switch (Console.ReadLine())
                         {
                             case "1":
-                                Console.Write("Введіть мінімальне та максимальне допустимі значення через пропуск -> ");
+                                Console.Write("Введiть мiнiмальне та максимальне допустимi значення через пропуск -> ");
                                 int[] bord = (from num in Console.ReadLine().Trim().Split() select int.Parse(num)).ToArray();
                                 matrixLexa1 = Fillting.FillJaggedArrayWithRandom(matrixLexa1, bord.Min(), bord.Max());
                                 matrixLexa2 = Fillting.FillJaggedArrayWithRandom(matrixLexa2, bord.Min(), bord.Max());
@@ -115,20 +115,20 @@ while (true)
                                 matrixLexa2 = Fillting.FillJaggedArrayWithSpace(matrixLexa2);
                                 break;
                             default:
-                                Console.WriteLine("Некоректне занчення,перехід до кейсу 1");
+                                Console.WriteLine("Некоректне занчення,перехiд до кейсу 1");
                                 goto case "1";
                         }
                         Lexa.MainMethodBlock3(matrixLexa1,matrixLexa2);
                         break;
                     case "4":
                         int[,] VanArr;
-                        Console.WriteLine("Введіть 1 для заповнення масиву через ентер аба 2 для заповнення через пробіл  ");
+                        Console.WriteLine("Введiть 1 для заповнення масиву через ентер аба 2 для заповнення через пробiл  ");
                         int choiceVan = int.Parse(Console.ReadLine());
-                        Console.Write("Введіть кількість рядків  ");
+                        Console.Write("Введiть кiлькiсть рядкiв  ");
                         int vanX = int.Parse(Console.ReadLine());
-                        Console.Write("Введіть кількість стовпчиків  ");
+                        Console.Write("Введiть кiлькiсть стовпчикiв  ");
                         int vanY = int.Parse(Console.ReadLine());
-                        Console.WriteLine(@"Введіть 1 або 0 
+                        Console.WriteLine(@"Введiть 1 або 0 
 break;");
                         switch (choiceVan)
                         {
@@ -141,7 +141,7 @@ break;");
                                 int[][] res2 = VanDarckhoule.VanVol3(VanArr);
                                 break;
                             default:
-                                Console.WriteLine("Ви не ввели 1 або 2 тому вводіть через ентер");
+                                Console.WriteLine("Ви не ввели 1 або 2 тому вводiть через ентер");
                                 goto case 1;
                                 break;
                                 break;
@@ -152,8 +152,8 @@ break;");
                         Console.WriteLine("Некоректне занчення");
                         break;
                 }
-                Console.WriteLine("Ведіть q якщо не бажаєте передати щойно опрацьований масив в метод іншого учня," +
-                                  " в іншому випадку натисніть enter");
+                Console.WriteLine("Ведiть q якщо не бажаєте передати щойно опрацьований масив в метод iншого учня," +
+                                  " в iншому випадку натиснiть enter");
                 if (String.Compare("q", Console.ReadLine(), StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     blockThreeGo = false;
@@ -163,7 +163,7 @@ break;");
             break;
     }
 
-    Console.WriteLine("Якщо бажаєте вийти введіть q");
+    Console.WriteLine("Якщо бажаєте вийти введiть q");
     if (string.Compare(Console.ReadLine(), "q", StringComparison.OrdinalIgnoreCase) == 0)
     {
         break;
@@ -180,13 +180,13 @@ static void PrintJagArr(int[][] arr)
 
 static void ChooseYourChampionBlock1(ref int[] arr)
 {
-    Console.WriteLine("Введіть цифру відповідну номеру учня\n" +
-                      "1 Марченко А.І.\n2 Каюк І.В.\n" +
-                      "3 Мартиненко О.С.\n4 Шафієв Д.Ю.");
+    Console.WriteLine("Введiть цифру вiдповiдну номеру учня\n" +
+                      "1 Марченко А.i.\n2 Каюк i.В.\n" +
+                      "3 Мартиненко О.С.\n4 Шафiєв Д.Ю.");
     switch (Console.ReadLine())
     {
         case "1":
-            Console.Write("Введіть ключ -> ");
+            Console.Write("Введiть ключ -> ");
             arr = Billy.DeleteKey(arr, int.Parse(Console.ReadLine()));
             Console.WriteLine(string.Join(", ", arr));
             break;
@@ -212,16 +212,16 @@ static void ChooseYourChampionBlock2(ref int[][] arr)
         arrListVersion.Add(oneDimArr);
     }
 
-    Console.WriteLine("Введіть цифру відповідну номеру учня\n" +
-                      "1 Марченко А.І.\n2 Каюк І.В.\n" +
-                      "3 Мартиненко О.С.\n4 Шафієв Д.Ю.");
+    Console.WriteLine("Введiть цифру вiдповiдну номеру учня\n" +
+                      "1 Марченко А.i.\n2 Каюк i.В.\n" +
+                      "3 Мартиненко О.С.\n4 Шафiєв Д.Ю.");
     switch (Console.ReadLine())
     {
         case "1":
-            Console.Write("Введіть K -> ");
+            Console.Write("Введiть K -> ");
             int k = int.Parse(Console.ReadLine());
-            Console.WriteLine("Для того щоб виконати завдання з використанням list введіть 1," +
-                              " для звичайного виконання введіть 2");
+            Console.WriteLine("Для того щоб виконати завдання з використанням list введiть 1," +
+                              " для звичайного виконання введiть 2");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -233,7 +233,7 @@ static void ChooseYourChampionBlock2(ref int[][] arr)
                     PrintJagArr(arr);
                     break;
                 default:
-                    Console.WriteLine("Некоректне значення, перехід до кейсу 2");
+                    Console.WriteLine("Некоректне значення, перехiд до кейсу 2");
                     goto case "2";
             }
             break;
@@ -273,16 +273,16 @@ static void ChooseYourChampionBlock3(ref int[][] arr, int variant)
 
 static int[][] GetJagArr()
 {
-    Console.WriteLine("Введіть довжину зубчастого масиву");
+    Console.WriteLine("Введiть довжину зубчастого масиву");
     int[][] arr = new int[int.Parse(Console.ReadLine())][];
-    Console.WriteLine("Введіть цифру відповідну способу " +
+    Console.WriteLine("Введiть цифру вiдповiдну способу " +
                       "введення зубчастого масиву:\n" +
                       "1 Заповнення випадковими числами\n" +
                       "2 Заповення в рядок\n3 Заповнення в стовпчик");
     switch (Console.ReadLine())
     {
         case "1":
-            Console.Write("Введіть мінімальне та максимальне допустимі значення через пропуск -> ");
+            Console.Write("Введiть мiнiмальне та максимальне допустимi значення через пропуск -> ");
             int[] bord = (from num in Console.ReadLine().Trim().Split() select int.Parse(num)).ToArray();
             arr = Fillting.FillJaggedArrayWithRandom(arr, bord.Min(), bord.Max());
             Console.WriteLine("Ваш масив:");
