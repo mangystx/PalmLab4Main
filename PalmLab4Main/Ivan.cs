@@ -51,7 +51,7 @@ namespace PalmLab4
         //Завдання №2
         public static void Extend_Mass(ref int[][] mass)
         {
-            Array.Resize(ref mass, mass.Length + 1);
+            //Array.Resize(ref mass, mass.Length + 1);
             mass[mass.Length - 1] = new int[mass[mass.Length - 2].Length];
             BonusRow_Index(out int index, mass.Length - 1);
             Push_Down_Roows(ref mass, index);
